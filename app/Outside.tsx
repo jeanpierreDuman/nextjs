@@ -42,7 +42,7 @@ export default function Outside() {
     },
   ]);
 
-  function sumOfTable(table: object) {
+  function sumOfTable(table: any) {
     let sum = 0;
 
     table.articles.map((article: any) => {
