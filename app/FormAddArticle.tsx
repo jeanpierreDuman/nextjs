@@ -4,7 +4,7 @@ export default function FormAddArticle({
   articleCreate,
   handleChangeNomArticle,
   handleChangeMontantArticle,
-}) {
+}: any) {
   return (
     <div>
       <Form.Group className="mb-3" controlId="name">
