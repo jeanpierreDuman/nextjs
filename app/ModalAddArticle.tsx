@@ -3,7 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import FormAddArticle from "./FormAddArticle";
 import { useState } from "react";
 
-export default function ModalAddArticle({ setArticles, articles }) {
+export default function ModalAddArticle({ setArticles, articles }: any) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
