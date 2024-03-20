@@ -1,0 +1,9 @@
+.card {
+  background: red;
+  min-height: 120px;
+  margin: 5px;
+}
+
+.card > body {
+  padding: 0;
+}
