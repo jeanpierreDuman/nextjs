@@ -2,7 +2,7 @@
 
 import { Container, Row } from "react-bootstrap";
 import "./index.css";
-import Board from "./Board";
+import Board from "./component/Board";
 
 export default function Default() {
   return (

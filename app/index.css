@@ -10,3 +10,24 @@
 .float-right {
   float: right;
 }
+
+.error {
+  color: red;
+}
+
+.calculator {
+  width: 275px;
+  text-align: center;
+}
+
+.calcultor-equal {
+  background-color: orange !important;
+}
+
+.calculator td:hover {
+  cursor: pointer;
+}
+
+.calculator td:hover:not(.calcultor-equal) {
+  background-color: rgb(243, 243, 243);
+}
