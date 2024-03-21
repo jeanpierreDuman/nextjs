@@ -20,7 +20,7 @@ export default function ModalAddTable({ setTables, tables }: any) {
   };
 
   const handleSubmitTable = () => {
-    let stillExist = tables.find((table) => table.num == tableCreate.num);
+    let stillExist = tables.find((table: any) => table.num == tableCreate.num);
 
     setErrorNum("");
 
