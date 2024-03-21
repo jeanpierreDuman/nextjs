@@ -1,7 +1,6 @@
 import ModalAddArticle from "./ModalAddArticle";
-import Card from "react-bootstrap/Card";
 import { useState } from "react";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Row, ListGroup, ListGroupItem, Button } from "react-bootstrap";
 
 export default function Outside() {
   const [articles, setArticles] = useState([
@@ -66,67 +65,65 @@ export default function Outside() {
   };
 
   return (
-    <Container className="mt-5">
+    <div className="mt-4">
       <Row>
-        <>
+        <Col md={3}>
           <h1>Articles</h1>
           <ModalAddArticle setArticles={setArticles} articles={articles} />
-          <div>
-            {articles.map((article, index) => (
-              <Card
-                key={index}
-                style={{
-                  width: 100,
-                  height: 95,
-                  margin: 5,
-                }}
-                onClick={() => addArticleToTable(index)}
-              >
-                <Card.Body>
-                  <Card.Title style={{ fontSize: 14 }}>
-                    {article.name}
-                  </Card.Title>
-                  <Card.Text>{article.pUnit} €</Card.Text>
-                </Card.Body>
-              </Card>
-            ))}
-          </div>
-        </>
-        <Col>
-          <h1>Tables</h1>
-          <div>
-            {tables.map((table, index) => (
-              <div key={index} onClick={() => setIndexOfSelectTable(index)}>
-                <Card
-                  style={{
-                    width: "18rem",
-                    marginTop: 10,
-                    marginBottom: 10,
-                  }}
+          <div className="mt-3">
+            <ListGroup>
+              {articles.map((article, index) => (
+                <ListGroupItem
+                  key={index}
+                  onClick={() => addArticleToTable(index)}
                 >
-                  <Card.Body>
-                    <Card.Title>Table {table.num}</Card.Title>
-                    <Card.Text>
-                      <strong>{sumOfTable(table)} €</strong>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </div>
-            ))}
+                  <span>{article.name}</span>
+                  <span className="float-right">{article.pUnit} €</span>
+                </ListGroupItem>
+              ))}
+            </ListGroup>
           </div>
         </Col>
-      </Row>
-      <hr />
-      <Row>
-        <Col>
-          <h1>Table {tables[indexOfSelectTable].num}</h1>
-          {tables[indexOfSelectTable].articles.map((article, index) => (
-            <p key={index}>
-              {article.name} - {article.pUnit} €
-            </p>
-          ))}
+        <Col md={2}>
+          <h1>Tables</h1>
+          <Button variant="primary">Ajouter une table</Button>
+          <div className="mt-3">
+            <ListGroup>
+              {tables.map((table, index) => (
+                <ListGroupItem
+                  key={index}
+                  onClick={() => setIndexOfSelectTable(index)}
+                  className={
+                    index == tables[indexOfSelectTable].num - 1 ? "active" : ""
+                  }
+                >
+                  <span>Table {table.num}</span>
+                  <span className="float-right">
+                    <strong>{sumOfTable(table)} €</strong>
+                  </span>
+                </ListGroupItem>
+              ))}
+            </ListGroup>
+          </div>
+        </Col>
+        <Col md={3}>
+          <div className="align-element-board">
+            <ListGroup>
+              {tables[indexOfSelectTable].articles.map((article, index) => (
+                <ListGroupItem key={index}>
+                  <span>{article.name}</span>
+                  <span className="float-right">
+                    <strong>{article.pUnit} €</strong>
+                  </span>
+                </ListGroupItem>
+              ))}
+            </ListGroup>
+          </div>
+        </Col>
+        <Col md={3}>
+          <div className="align-element-board"></div>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }

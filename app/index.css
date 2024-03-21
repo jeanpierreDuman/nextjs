@@ -1,9 +1,12 @@
-.card {
-  background: red;
-  min-height: 120px;
-  margin: 5px;
+.list-group-item:hover:not(.active) {
+  cursor: pointer;
+  background-color: rgb(227, 227, 227);
 }
 
-.card > body {
-  padding: 0;
+.align-element-board {
+  margin-top: 110px;
+}
+
+.float-right {
+  float: right;
 }
